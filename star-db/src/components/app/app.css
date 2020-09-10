@@ -13,11 +13,14 @@ nav {
     margin: 0px 40px;
     max-width: 850px;
 }
-
+ul li {
+    font-weight: 600;
+}
 .random-planet {
-    background-color: #41413c;
     border-radius: 5px;
-    height: 400px;
+    padding: 10px;
+    height: auto;
+    box-sizing: inherit;
 }
 
 .random-img {
@@ -25,5 +28,36 @@ nav {
     height: 150px;
     border-radius: 10px;
 }
+.container {
+    border-radius: 5px;
+}
+ul.random-planet-info {
+    display: inline-block;
+}
+ul.random-planet-info li {
+    border-top: 1px solid #4e4848;
+    display:block;
+    width: 300px;
+    padding-top: 5px;
+    padding-bottom: 5px ;
+}
+.row {
+    padding: 10px;
+}
+.item-list ul li {
+    display: block;
+    padding: 15px 10px;
+    border: 1px solid #4e4848;
+    border-radius: 5px;
+    width: 100%;
+}
 
+.item-list { 
+    margin-top: 20px;
+}
 
+.container-block {
+    background-color: #41413c; 
+    border-radius: 10px;
+    max-width: 100%;
+}

@@ -1,15 +1,15 @@
-ul {
+nav ul {
     width: auto;
     height: auto;
     display: flex;
 }
-ul li {
+nav ul li {
     width: 100%;
     padding: .5rem 1rem;
     color: #ABF2d3;
     cursor: pointer;
 
 }
-ul li:first-child {
+nav ul li:first-child {
     color:#fff;
 }
