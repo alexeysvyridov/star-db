@@ -4,6 +4,9 @@
     padding:0px;
     list-style: none;
 }
+body {
+  font-size: 16px;
+}
 nav {
     width: 100%;
     height: 100%;
@@ -16,32 +19,32 @@ nav {
 ul li {
     font-weight: 600;
 }
-.random-planet {
-    border-radius: 5px;
-    padding: 10px;
-    height: auto;
-    box-sizing: inherit;
+.wrapper {
+  border-radius: 5px;
+  padding: 10px;
+  height: auto;
+  box-sizing: inherit;
 }
-
+.person-image,
 .random-img {
-    width: 150px;
-    height: 150px;
-    border-radius: 10px;
+    width: 9rem;
+    height: 9rem;
+    border-radius: .6rem;
 }
 .container {
     border-radius: 5px;
 }
-ul.random-planet-info {
+ul.block-info {
     display: inline-block;
 }
-ul.random-planet-info li {
+ul.block-info li {
     border-top: 1px solid #4e4848;
     display:block;
-    width: 300px;
+    width: 17rem;
     padding-top: 5px;
     padding-bottom: 5px ;
 }
-.row {
+/* .row {
     padding: 10px;
 }
 .item-list ul li {
@@ -50,7 +53,7 @@ ul.random-planet-info li {
     border: 1px solid #4e4848;
     border-radius: 5px;
     width: 100%;
-}
+} */
 
 .item-list { 
     margin-top: 20px;

@@ -1,26 +1,49 @@
 import React from 'react'
-import earth from '../../assets/earth.jpg'
+import SwapiService from '../../services/swapi'
 import './random-planet.css'
-const RandomPlanet = () => {
-    return (
-        <div className="random-planet container-block">
-            <div className="container">
-                <div className="row">
-                    <div className="col-md-4">
-                        <img className="random-img" src={earth} alt="earth"/>
-                    </div>
-                    <div className="col-md-8">
-                        <h3>Planet Name</h3> 
-                        <ul className="random-planet-info">
-                            <li>Pupulation 123124</li>
-                            <li>Rotation Period 43</li>
-                            <li>Diameter 100</li>
-                        </ul>
-                    </div>
-                </div>
-            </div> 
-        </div>
-    )
+export default class RandomPlanet extends React.Component {
+    constructor() {
+        super()
+        this.updatePlanet()
+    }
+    swapiService = new SwapiService()
+    state = {
+        planet: {}
+    }
+    onPlanetLoaded = (planet) => {
+        this.setState({planet});
+    }
+    updatePlanet() {
+        const id = Math.floor((Math.random()*25) ) + 2  ;
+        this.swapiService.getPlanet(id)
+            .then(this.onPlanetLoaded);
+    }
+    render() {
+    
+        const { planet: {name, population, rotationPeriod, diameter, id} } = this.state;
+        console.log(id);
+        return (
+            <div className="random-planet jumbotron rounded">
+            <img className="planet-image"
+                 src= { `https://starwars-visualguide.com/assets/img/planets/${id}.jpg`} />
+            <div>
+              <h4>{name}</h4>
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">
+                  <span className="term">Population</span>
+                  <span>{population}</span>
+                </li>
+                <li className="list-group-item">
+                  <span className="term">Rotation Period</span>
+                  <span>{rotationPeriod}</span>
+                </li>
+                <li className="list-group-item">
+                  <span className="term">Diametr</span>
+                  <span>{diameter}</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        )
+    }
 }
-
-export default RandomPlanet
