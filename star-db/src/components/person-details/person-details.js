@@ -1,5 +1,4 @@
 import React from 'react'
-import personImg from '../../assets/R2-D2.png'
 function PersonDetails() {
   return(
  <div className="person-details card">
