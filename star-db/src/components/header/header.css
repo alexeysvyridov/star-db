@@ -1,0 +1,15 @@
+ul {
+    width: auto;
+    height: auto;
+    display: flex;
+}
+ul li {
+    width: 100%;
+    padding: .5rem 1rem;
+    color: #ABF2d3;
+    cursor: pointer;
+
+}
+ul li:first-child {
+    color:#fff;
+}

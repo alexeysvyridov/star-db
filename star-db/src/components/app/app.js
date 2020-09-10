@@ -1,11 +1,13 @@
 import React from 'react';
-
+import Header from '../header'
 import './app.css';
+import RandomPlanet from '../random-planet/random-planet';
 
 function App() {
   return (
     <div className="App">
-      <h1>Hi</h1>
+      <Header />
+      <RandomPlanet />
     </div>
   );
 }
