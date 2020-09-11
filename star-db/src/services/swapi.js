@@ -3,7 +3,7 @@ export default class SwappiService {
   async getResource(url) {
     const res = await fetch(`${this._apiBase}${url}/`);
     if(!res.ok) {
-      throw new Error(`Could not fetch ${url}`)
+      console.log(`Could not fetch ${url}`)
     }
     return await res.json()
   }
@@ -19,8 +19,12 @@ export default class SwappiService {
     return planets.map(this._transformPlanet)
   }
   async getPlanet(id) {
-    const planet =  await this.getResource(`/planets/${id}`)
-    return this._transformPlanet(planet);
+    try {
+      const planet =  await this.getResource(`/planets/${id}`)
+      return this._transformPlanet(planet);
+    } catch(err) {
+      console.log(err);
+    }
   }
   async  getAllStarships(id) {
     const starships =  await this.getResource(`/starships`)

@@ -7,6 +7,9 @@
 body {
   font-size: 16px;
 }
+#root {
+    margin: 0px 100px;
+}
 nav {
     width: 100%;
     height: 100%;
@@ -19,12 +22,7 @@ nav {
 ul li {
     font-weight: 600;
 }
-.wrapper {
-  border-radius: 5px;
-  padding: 10px;
-  height: auto;
-  box-sizing: inherit;
-}
+
 .person-image,
 .random-img {
     width: 9rem;
@@ -44,17 +42,6 @@ ul.block-info li {
     padding-top: 5px;
     padding-bottom: 5px ;
 }
-/* .row {
-    padding: 10px;
-}
-.item-list ul li {
-    display: block;
-    padding: 15px 10px;
-    border: 1px solid #4e4848;
-    border-radius: 5px;
-    width: 100%;
-} */
-
 .item-list { 
     margin-top: 20px;
 }
@@ -63,4 +50,8 @@ ul.block-info li {
     background-color: #41413c; 
     border-radius: 10px;
     max-width: 100%;
+}
+
+.centered {
+    margin: 0 auto;
 }
