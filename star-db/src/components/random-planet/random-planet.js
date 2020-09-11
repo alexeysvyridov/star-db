@@ -6,8 +6,17 @@ import ErrorIndicator from "../error-indicator/error-indicator";
 export default class RandomPlanet extends React.Component {
   constructor() {
     super();
-    this.updatePlanet();
+    console.log('constructor');
+    this.updatePlanet()
+    // this.interval = setInterval(this.updatePlanet, 15000)
+
   }
+  componentDidMount () {
+    console.log('didmount');
+  }
+  componentWillUnmount () {
+    console.log('willMount');
+}
   swapiService = new SwapiService();
   state = {
     planet: {},
@@ -23,8 +32,8 @@ export default class RandomPlanet extends React.Component {
         loading: false
     })
   }
-  updatePlanet() {
-    const id = Math.floor(Math.random() * 25) + 2;
+  updatePlanet = () => {
+    const id = Math.floor(Math.random() * 25) + 3;
     this.swapiService.getPlanet(id)
         .then(this.onPlanetLoaded)
         .catch(this.onError)
