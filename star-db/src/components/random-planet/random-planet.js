@@ -4,19 +4,15 @@ import "./random-planet.css";
 import Spinner from "../spinner/spinner";
 import ErrorIndicator from "../error-indicator/error-indicator";
 export default class RandomPlanet extends React.Component {
-  constructor() {
-    super();
-    console.log('constructor');
-    this.updatePlanet()
-    // this.interval = setInterval(this.updatePlanet, 15000)
 
-  }
   componentDidMount () {
-    console.log('didmount');
+    this.updatePlanet()
+     // this.interval = setInterval(this.updatePlanet, 15000)
   }
-  componentWillUnmount () {
-    console.log('willMount');
-}
+
+  // componentWillUnmount () {
+  //   clearInterval(this.interval)
+  // }
   swapiService = new SwapiService();
   state = {
     planet: {},

@@ -1,4 +1,5 @@
 
+import React, { Component } from 'react'
 import Header from '../header';
 import RandomPlanet from '../random-planet';
 import ItemList from '../item-list';
@@ -6,27 +7,31 @@ import PersonDetails from '../person-details';
 
 import './app.css';
 
-import React, { Component } from 'react'
 
 export default class app extends Component {
   state = {
     showRandomPlanet: true,
-    selectedPerson: null
+    selectedPerson: 5
   }
   onItemSelected = (id) => {
+    console.log(id);
     this.setState({
       selectedPerson: id
     })
   }
+  onPersonSelected = (id) => {
+    this.setState({selectedPerson: id})
+  }
   render() {
+    const planet = this.state.showRandomPlanet ?  <RandomPlanet /> : null;
     return (
       <div>
         <Header />
-        <RandomPlanet />
-  
+       {planet}
+
         <div className="row mb2">
           <div className="col-md-6">
-            <ItemList onItemSelected={this.onItemSelected}/>
+            <ItemList onItemSelected={this.onPersonSelected}/>
           </div>
           <div className="col-md-6">
             <PersonDetails personId={this.state.selectedPerson}/>

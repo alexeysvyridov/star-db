@@ -11,8 +11,9 @@ export default class SwappiService {
     const res =  await this.getResource(`/people`)
     return res.results.map(this._transformPerson);
   }
-  getPerson(id) {
-    return this.getResource(`/people/${id}`)
+  async getPerson(id) {
+    const person = await this.getResource(`/people/${id}`)
+    return this._transformPerson(person)
   }
   async getAllPlanets() {
     const planets =  await this.getResource(`/planets`)
