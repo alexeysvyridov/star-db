@@ -1,45 +1,60 @@
 
 import React, { Component } from 'react'
 import './item-list.css'
-import SwappiService from '../../services/swapi'
+// import SwappiService from '../../services/swapi'
 import Spinner from '../spinner/spinner'
 
 export default class ItemList extends Component {
-    swapiService = new SwappiService()
+
     state = {
-        peopleList: null
+        itemList: null
     }
+
     componentDidMount() {
-        this.swapiService
-            .getAllPeople()
-            .then((list) => this.setState({
-                peopleList:list
-            }))
-    }
-    getList = (peopleList) => {
-        let {onItemSelected} = this.props
-        return  peopleList.map(({id, name}) => {
+ 
+        const { getData } = this.props;
+        getData()
+            .then((list) =>{
+                this.setState({
+                    itemList:list
+                });
+            }) 
+    };
+
+
+
+    renderItems = (list) => {
+        return list.map((item) => {
+            const { id } = item;
+            if(!this.props.children) {
+                return
+            }
+            const  label  = this.props.children(item)
             return (
-                <li className="list-group-item"
+                <li
+                    className="list-group-item"
                     key={id}
-                    onClick={(() =>{onItemSelected(id)})}
+                    onClick={() => {
+                        this.props.onItemSelected(id);
+                    }}
                 >
-                    {name}
+                    {label}
                 </li>
-            )
-        })
-    }
+            );
+        });
+    };
+
     render() {
 
-        const { peopleList } = this.state;
-        if(!peopleList ) {
+        const { itemList } = this.state;
+        if(!itemList ) {
             return <Spinner />
         }
-        const items = this.getList(peopleList)
+        const items = this.renderItems(itemList)
         return (
             <div className="container-block" >
              <ul className="item-list list-group">
-                {items}
+             {items}
              </ul>
             </div>
         )

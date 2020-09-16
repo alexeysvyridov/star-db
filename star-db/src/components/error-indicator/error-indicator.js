@@ -1,12 +1,19 @@
-import React from 'react'
-import './error-indicator.css'
-const  ErrorIndicator = () => {
+import React from 'react';
+
+import './error-indicator.css';
+
+const ErrorIndicator = () => {
   return (
-    <div className="error-indicator"> 
-      <span className="boom">Boom!</span>
-      <span>Somithing went frong</span>
-      <span>(we already sent you help!)</span>
+    <div className="error-indicator">
+      <span className="boom">BOOM!</span>
+      <span>
+        something has gone terribly wrong
+      </span>
+      <span>
+        (but we already sent droids to fix it)
+      </span>
     </div>
-  )
-}
-export default  ErrorIndicator;
+  );
+};
+
+export default ErrorIndicator;
