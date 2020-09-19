@@ -1,9 +1,8 @@
-
 import React from 'react';
 
 const Row = ({ left, right }) => {
   return (
-    <div className="row mb2 mt2">
+    <div className="row mb2">
       <div className="col-md-6">
         {left}
       </div>
