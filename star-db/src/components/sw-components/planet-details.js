@@ -1,6 +1,6 @@
 
 import React from 'react'
-import ItemDetails, {Record} from '../item-details';
+import ItemDetails, { Record } from '../item-details';
 import { withSwapiService } from '../hoc-helpers'
 const PlanetDetails = (props) => {
   return (
@@ -14,10 +14,11 @@ const PlanetDetails = (props) => {
   )
 }
 
-const mapMethodsToPorps = (swapiService) => {
+const mapMethodsToProps = (swapiService) => {
+  console.log(swapiService.getPlanetImage);
   return {
     getData: swapiService.getPlanet,
-    getImageUrl: swapiService.getImageUrl
+    getImageUrl: swapiService.getPlanetImage
   }
 }
-export default withSwapiService(PlanetDetails, mapMethodsToPorps);
+export default withSwapiService(PlanetDetails, mapMethodsToProps);

@@ -1,5 +1,5 @@
 import React from 'react'
-import ItemDetails, { Record } from '../item-details'
+import ItemDetails, { Record } from '../item-details';
 import { withSwapiService } from '../hoc-helpers'
 const PersonDetails = (props) => {
   return (
@@ -9,11 +9,11 @@ const PersonDetails = (props) => {
     </ItemDetails>
   )
 }
-const mapMethodsTopProps = (swapiService) => {
+const mapMethodsToProps = (swapiService) => {
   return {
     getData: swapiService.getPerson,
     getImageUrl: swapiService.getPersonImage
   }
 }
 
-export default withSwapiService(PersonDetails, mapMethodsTopProps)
+export default withSwapiService(PersonDetails, mapMethodsToProps)

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 
-import ErrorButton from '../error-button';
-import SwapiService from '../../services/swapi';
+import ErrorButton from '../error-button/error-button';
 
 import './item-details.css';
 
@@ -18,10 +17,7 @@ export {
   Record
 };
 
-
 export default class ItemDetails extends Component {
-
-  swapiService = new SwapiService();
 
   state = {
     item: null,
@@ -50,7 +46,7 @@ export default class ItemDetails extends Component {
           item,
           image: getImageUrl(item)
         });
-      });
+      }).catch(err => console.log(err))
   }
 
   render() {
@@ -59,9 +55,7 @@ export default class ItemDetails extends Component {
     if (!item) {
       return <span>Select a item from a list</span>;
     }
-
-    const { id, name, gender,
-              birthYear, eyeColor } = item;
+    const { name } = item;
 
     return (
       <div className="item-details card">

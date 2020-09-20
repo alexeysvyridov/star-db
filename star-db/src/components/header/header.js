@@ -1,6 +1,6 @@
 import React from 'react';
 import './header.css'
- const  Header = () => {
+ const  Header = ({onServiceChange}) => {
     return (
         <nav className="d-flex">
         <a href="#">
@@ -19,6 +19,10 @@ import './header.css'
                 <a href="#">Starships</a>
             </li>
         </ul>
+        <button className="btn btn-primary btn-sm"
+        onClick={onServiceChange}>
+            Change Service
+        </button>
         </nav>
     )
  }
