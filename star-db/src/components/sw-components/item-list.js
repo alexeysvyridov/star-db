@@ -1,34 +1,56 @@
-
 import React from 'react';
+import ItemList from '../item-list';
+import { withData, withSwapiService } from '../hoc-helpers';
 
-import { withData } from '../hoc-helpers';
-import SwapiService from "../../services/swapi-service";
-import './item-list.css';
-
-const ItemList = (props) => {
-
-  const { data, onItemSelected, children: renderLabel } = props;
-
-  const items = data.map((item) => {
-    const { id } = item;
-    const label = renderLabel(item);
-
+const withChildFunction = (Wrapped, fn) => {
+  return (props) => {
     return (
-      <li className="list-group-item"
-          key={id}
-          onClick={() => onItemSelected(id)}>
-        {label}
-      </li>
-    );
-  });
-
-  return (
-    <ul className="item-list list-group">
-      {items}
-    </ul>
-  );
+      <Wrapped {...props}>
+        {fn}
+      </Wrapped>
+    )
+  };
 };
 
-const { getAllPeople } = new SwapiService();
+const renderName = ({ name }) => <span>{name}</span>;
 
-export default withData(ItemList, getAllPeople);
+const renderModelAndName = ({ model, name}) => <span>{name} ({model})</span>;
+
+const mapPersonMethodsToProps = (swapiService) => {
+  return {
+    getData: swapiService.getAllPeople
+  };
+};
+
+const mapPlanetMethodsToProps = (swapiService) => {
+  return {
+    getData: swapiService.getAllPlanets
+  };
+};
+
+const mapStarshipMethodsToProps = (swapiService) => {
+  return {
+    getData: swapiService.getAllStarships
+  };
+};
+
+const PersonList = withSwapiService(
+                      withData(
+                        withChildFunction(ItemList, renderName)),
+                    mapPersonMethodsToProps);
+
+const PlanetList =  withSwapiService(
+                      withData(
+                        withChildFunction(ItemList, renderName)),
+                    mapPlanetMethodsToProps);
+
+const StarshipList = withSwapiService(
+                        withData(
+                          withChildFunction(ItemList, renderModelAndName)),
+                     mapStarshipMethodsToProps);
+
+export {
+  PersonList,
+  PlanetList,
+  StarshipList
+};
