@@ -7,12 +7,8 @@ export default class RandomPlanet extends React.Component {
 
   componentDidMount () {
     this.updatePlanet()
-     // this.interval = setInterval(this.updatePlanet, 15000)
   }
 
-  // componentWillUnmount () {
-  //   clearInterval(this.interval)
-  // }
   swapiService = new SwapiService();
   state = {
     planet: {},
@@ -56,6 +52,7 @@ const PlanetView = ({planet}) => {
   return (
     <React.Fragment>
       <img
+        alt="planet"
         className="planet-image"
         src={`https://starwars-visualguide.com/assets/img/planets/${id}.jpg`}
       />

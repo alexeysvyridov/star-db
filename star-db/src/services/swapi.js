@@ -98,4 +98,4 @@ export default class SwappiService {
     }
   }
 }
-const swapi = new SwappiService()
+new SwappiService()
