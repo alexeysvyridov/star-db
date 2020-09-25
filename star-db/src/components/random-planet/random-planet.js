@@ -5,8 +5,14 @@ import Spinner from "../spinner/spinner";
 import ErrorIndicator from "../error-indicator/error-indicator";
 export default class RandomPlanet extends React.Component {
 
+  static defaultProps = {
+    updateInterval: 60000
+  };
+
   componentDidMount () {
+    const { updateInterval } = this.props;
     this.updatePlanet()
+    this.interval = setInterval(this.updatePlanet, updateInterval)
   }
 
   swapiService = new SwapiService();

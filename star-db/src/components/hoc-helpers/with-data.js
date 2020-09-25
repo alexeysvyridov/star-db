@@ -26,7 +26,6 @@ const withData = (View) => {
       
       this.props.getData()
       .then((data) => {
-        console.log(data);
         this.setState({
           data,
           loading: false,

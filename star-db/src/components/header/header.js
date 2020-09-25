@@ -3,20 +3,20 @@ import './header.css'
  const  Header = ({onServiceChange}) => {
     return (
         <nav className="d-flex">
-            <a href="#">
+            <a href="/#">
             <h3>  
               Star DB
             </h3>
         </a>
             <ul className="d-flex">
             <li>
-                <a href="#">People</a>
+                <a href="/#">People</a>
             </li>
             <li>
-                <a href="#">Planets</a>
+                <a href="/#">Planets</a>
             </li>
             <li>
-                <a href="#">Starships</a>
+                <a href="/#">Starships</a>
             </li>
         </ul>
             <button className="btn btn-primary btn-sm"

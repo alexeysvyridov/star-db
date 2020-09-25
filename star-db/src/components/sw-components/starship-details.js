@@ -18,4 +18,4 @@ const mapMethodsToProps = (swapiService) => {
     getImageUrl: swapiService.getStarshipImage
   }
 }
-export default withSwapiService(StarShipsDetails, mapMethodsToProps); 
+export default withSwapiService(mapMethodsToProps)(StarShipsDetails); 
